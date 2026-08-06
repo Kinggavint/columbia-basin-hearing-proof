@@ -1,0 +1,9 @@
+# SOURCE: https://www.columbiabasinhearing.com/online-store/p/audinell-skin-care-gel
+<!-- title: Audinell Skin-Care Gel — Columbia Basin Hearing Center -->
+<!-- description:   This amazing ear gel relieves itchy ears, dry skin, rash, eczema, or dermatitis of the ear &amp; lubricates the ear canal to help make it easier to insert &amp; remove hearing aids, earmolds, earplugs, earbuds, PSAPs, in-ear monitors (IEMs), or electronic hearing protection devices.   -->
+
+![](https://images.squarespace-cdn.com/content/v1/6627c873af0c127944582e9e/1721761483314-X7AA8HCAGO1X30W2F36B/Skin+Care+Gel+-+Audinell.png)
+
+# Audinell Skin-Care Gel
+This amazing ear gel relieves itchy ears, dry skin, rash, eczema, or dermatitis of the ear & lubricates the ear canal to help make it easier to insert & remove hearing aids, earmolds, earplugs, earbuds, PSAPs, in-ear monitors (IEMs), or electronic hearing protection devices.
+Audinell Ear Gel naturally hydrates, moisturizes, & lubricates the ear canal. It is specifically designed for people who wear in-ear devices such as hearing aids, earmolds, earplugs, earbuds, PSAPs, in-ear monitors, or electronic hearing protection devices frequently and/or for long periods of time each day. Our innovative formula makes it easier to both insert & remove your hearing devices, and utilizes Boswellia (Indian frankincense) to help relieve common skin-related ear conditions such as itchy ears, dry skin, rash, eczema, and dermatitis. This makes it more comfortable & enjoyable to insert, use, and remove your audio, hearing, or listening devices. Using our ear gel can also help you achieve a better acoustic seal, which helps allow for the best possible sound quality. A better seal will give you deeper bass, clearer highs and a much better overall sound. This gentle, but effective formula has been clinically tested & proven to be safe for all skin types & ages.
