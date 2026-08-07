@@ -41,7 +41,6 @@ export const NAV: NavItem[] = [
       { label: "Video Library", to: "/video-library" },
     ],
   },
-  { label: "Online Store", to: "/online-store" },
   { label: "Contact Us", to: "/contact-us" },
 ];
 

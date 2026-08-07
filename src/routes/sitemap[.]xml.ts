@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-import { PRODUCTS, STORE_CATEGORIES } from "@/components/site/store";
 
 // TODO: set this to the production origin once the domain is pointed at this site.
 const BASE_URL = "";
@@ -46,17 +45,6 @@ export const Route = createFileRoute("/sitemap.xml")({
             path,
             changefreq: "monthly" as const,
             priority: "0.8",
-          })),
-          { path: "/online-store", changefreq: "weekly", priority: "0.8" },
-          ...STORE_CATEGORIES.map((c) => ({
-            path: `/online-store/${c.slug}`,
-            changefreq: "weekly" as const,
-            priority: "0.6",
-          })),
-          ...PRODUCTS.map((p) => ({
-            path: `/online-store/p/${p.slug}`,
-            changefreq: "monthly" as const,
-            priority: "0.5",
           })),
         ];
 

@@ -19,7 +19,7 @@ function NotFoundComponent() {
   const links = [
     { to: "/services", label: "Services" },
     { to: "/about-us", label: "Our team" },
-    { to: "/online-store", label: "Online store" },
+    { to: "/do-you-have-a-loss", label: "Do you have a loss?" },
     { to: "/contact-us", label: "Contact us" },
   ];
 

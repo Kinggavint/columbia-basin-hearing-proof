@@ -18,8 +18,8 @@ const DIRECT_CONTACTS = [
   },
   {
     heading: "Sponsorships, partnerships & marketing",
-    person: "Michael Crow, Brand and Culture Manager",
-    body: "Should you have any inquiries pertaining to sponsorships, partnerships or marketing, please dial our main line and ask for Michael Crow, our Brand and Culture Manager.",
+    person: "Carey Palazzo, Practice Manager",
+    body: "Should you have any inquiries pertaining to sponsorships, partnerships or marketing, please contact us directly and ask for Carey Palazzo, our Practice Manager, or email cpalazzo@columbiabasinhearing.com.",
   },
 ];
 
