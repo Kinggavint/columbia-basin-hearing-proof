@@ -27,6 +27,7 @@ import { Route as LaceAiProRouteImport } from './routes/lace-ai-pro'
 import { Route as HomeRouteImport } from './routes/home'
 import { Route as HearingUpRouteImport } from './routes/hearing-up'
 import { Route as HearingHeroesRouteImport } from './routes/hearing-heroes'
+import { Route as HearingRouteImport } from './routes/hearing'
 import { Route as ForEducatorsRouteImport } from './routes/for-educators'
 import { Route as EffectivelyCommunicatingWithAHearingLossRouteImport } from './routes/effectively-communicating-with-a-hearing-loss'
 import { Route as DoYouHaveALossRouteImport } from './routes/do-you-have-a-loss'
@@ -131,6 +132,11 @@ const HearingHeroesRoute = HearingHeroesRouteImport.update({
   path: '/hearing-heroes',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HearingRoute = HearingRouteImport.update({
+  id: '/hearing',
+  path: '/hearing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ForEducatorsRoute = ForEducatorsRouteImport.update({
   id: '/for-educators',
   path: '/for-educators',
@@ -191,6 +197,7 @@ export interface FileRoutesByFullPath {
   '/do-you-have-a-loss': typeof DoYouHaveALossRoute
   '/effectively-communicating-with-a-hearing-loss': typeof EffectivelyCommunicatingWithAHearingLossRoute
   '/for-educators': typeof ForEducatorsRoute
+  '/hearing': typeof HearingRoute
   '/hearing-heroes': typeof HearingHeroesRoute
   '/hearing-up': typeof HearingUpRoute
   '/home': typeof HomeRoute
@@ -221,6 +228,7 @@ export interface FileRoutesByTo {
   '/do-you-have-a-loss': typeof DoYouHaveALossRoute
   '/effectively-communicating-with-a-hearing-loss': typeof EffectivelyCommunicatingWithAHearingLossRoute
   '/for-educators': typeof ForEducatorsRoute
+  '/hearing': typeof HearingRoute
   '/hearing-heroes': typeof HearingHeroesRoute
   '/hearing-up': typeof HearingUpRoute
   '/home': typeof HomeRoute
@@ -252,6 +260,7 @@ export interface FileRoutesById {
   '/do-you-have-a-loss': typeof DoYouHaveALossRoute
   '/effectively-communicating-with-a-hearing-loss': typeof EffectivelyCommunicatingWithAHearingLossRoute
   '/for-educators': typeof ForEducatorsRoute
+  '/hearing': typeof HearingRoute
   '/hearing-heroes': typeof HearingHeroesRoute
   '/hearing-up': typeof HearingUpRoute
   '/home': typeof HomeRoute
@@ -284,6 +293,7 @@ export interface FileRouteTypes {
     | '/do-you-have-a-loss'
     | '/effectively-communicating-with-a-hearing-loss'
     | '/for-educators'
+    | '/hearing'
     | '/hearing-heroes'
     | '/hearing-up'
     | '/home'
@@ -314,6 +324,7 @@ export interface FileRouteTypes {
     | '/do-you-have-a-loss'
     | '/effectively-communicating-with-a-hearing-loss'
     | '/for-educators'
+    | '/hearing'
     | '/hearing-heroes'
     | '/hearing-up'
     | '/home'
@@ -344,6 +355,7 @@ export interface FileRouteTypes {
     | '/do-you-have-a-loss'
     | '/effectively-communicating-with-a-hearing-loss'
     | '/for-educators'
+    | '/hearing'
     | '/hearing-heroes'
     | '/hearing-up'
     | '/home'
@@ -375,6 +387,7 @@ export interface RootRouteChildren {
   DoYouHaveALossRoute: typeof DoYouHaveALossRoute
   EffectivelyCommunicatingWithAHearingLossRoute: typeof EffectivelyCommunicatingWithAHearingLossRoute
   ForEducatorsRoute: typeof ForEducatorsRoute
+  HearingRoute: typeof HearingRoute
   HearingHeroesRoute: typeof HearingHeroesRoute
   HearingUpRoute: typeof HearingUpRoute
   HomeRoute: typeof HomeRoute
@@ -526,6 +539,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HearingHeroesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/hearing': {
+      id: '/hearing'
+      path: '/hearing'
+      fullPath: '/hearing'
+      preLoaderRoute: typeof HearingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/for-educators': {
       id: '/for-educators'
       path: '/for-educators'
@@ -608,6 +628,7 @@ const rootRouteChildren: RootRouteChildren = {
   EffectivelyCommunicatingWithAHearingLossRoute:
     EffectivelyCommunicatingWithAHearingLossRoute,
   ForEducatorsRoute: ForEducatorsRoute,
+  HearingRoute: HearingRoute,
   HearingHeroesRoute: HearingHeroesRoute,
   HearingUpRoute: HearingUpRoute,
   HomeRoute: HomeRoute,
