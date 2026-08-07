@@ -209,7 +209,9 @@ function Services() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-2xl">
           <p className="eyebrow text-accent">Services</p>
-          <h2 className="mt-4 text-3xl font-bold text-ink sm:text-4xl">We Can Help</h2>
+          <h2 className="mt-4 text-3xl font-bold text-ink sm:text-4xl">
+            We Can Help through a full suite of Audiological Services.
+          </h2>
         </div>
         <div className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-2 xl:grid-cols-3">
           {SERVICES.map((service, i) => (
