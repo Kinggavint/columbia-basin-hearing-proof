@@ -102,7 +102,7 @@ function Hero() {
               href="#services"
               className="rounded-full border border-border bg-card px-7 py-3.5 text-sm font-semibold text-primary transition-colors hover:bg-secondary"
             >
-              We can help.
+              See how we can help
             </a>
           </div>
           <dl className="mt-8 grid max-w-xl grid-cols-3 gap-4 border-t border-border pt-6 sm:gap-6">
