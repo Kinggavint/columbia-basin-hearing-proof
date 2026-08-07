@@ -188,13 +188,17 @@ function Engage() {
             Call us to Engage Today!
           </a>
         </div>
-        <div className="rounded-2xl bg-background/95 p-6 shadow-lift">
-          <img
-            src={IMG.engage}
-            alt="Engage hearing care solution packages from Columbia Basin Hearing Center"
-            loading="lazy"
-            className="w-full rounded-lg object-contain"
-          />
+        <div className="overflow-hidden rounded-2xl bg-background/95 p-6 shadow-lift">
+          <div className="aspect-video overflow-hidden rounded-lg bg-ink">
+            <iframe
+              className="h-full w-full"
+              src="https://www.youtube.com/embed/4eG7Vg7K4yo"
+              title="Engage Hearing Solution"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -347,7 +351,7 @@ function Heroes() {
               <div className="aspect-video">
                 <iframe
                   className="h-full w-full"
-                  src="https://www.youtube.com/embed/4eG7Vg7K4yo"
+                  src="https://www.youtube.com/embed/JbrwEZuYQTs"
                   title="We Help Heroes Everyday"
                   loading="lazy"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

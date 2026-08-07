@@ -3,7 +3,6 @@ const CDN = "https://images.squarespace-cdn.com/content/v1/6627c873af0c127944582
 export const IMG = {
   drShannonCutout: `${CDN}/a858fa9f-5302-4b08-b034-316ab81fe7e7/Dr+Shannon+PNG.png`,
   listening: `${CDN}/c8ffc0e6-4cea-45b5-9e54-e321e5970f77/Hearing+Small+Size.jpg`,
-  engage: `${CDN}/67fe2ea4-3857-4574-bb29-5a181f7da3e9/Engage+Solutions+for+CBHC+Site.png`,
   clinic: `${CDN}/aeaecc50-cb20-4def-9925-f9816b4afb9f/AdobeStock_170518761.jpeg`,
   plunge: `${CDN}/cabca3f5-940c-4b60-8362-f73a58cb2fbc/IMG_3512.jpg`,
   gradientWide: `${CDN}/e7f685d2-d1c2-4e2c-b87f-b136b3cbb95e/CBHC+Gradient+Wide.png`,
