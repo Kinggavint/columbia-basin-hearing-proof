@@ -52,7 +52,7 @@ export function PageHero({
                 src={image}
                 alt={imageAlt ?? ""}
                 loading="eager"
-                className="relative w-full rounded-2xl object-cover shadow-lift"
+                className="relative aspect-[4/3] w-full rounded-2xl object-cover shadow-lift"
               />
             </div>
           </div>
