@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { Link } from "@tanstack/react-router";
 import { LOCATIONS, PRIMARY_PHONE, PRIMARY_TEL } from "./content";
 import { NAV, PATIENT_PORTAL, type NavItem } from "./nav";
@@ -119,7 +120,10 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
 
   if (!open) return null;
 
-  return (
+  // Portalled to <body> because the header's backdrop-blur makes it a containing
+  // block for fixed-position descendants, which would otherwise confine this
+  // "fixed inset-0" drawer to the header's own box instead of the full viewport.
+  return createPortal(
     <div className="fixed inset-0 z-[60] lg:hidden">
       <button
         aria-label="Close menu"
@@ -188,7 +192,8 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
           </a>
         </div>
       </nav>
-    </div>
+    </div>,
+    document.body,
   );
 }
 
