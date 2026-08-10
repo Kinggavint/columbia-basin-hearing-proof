@@ -81,15 +81,15 @@ function Hero() {
       />
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 py-10 lg:grid-cols-[1.15fr_0.85fr] lg:py-14">
         <div>
-          <p className="eyebrow text-accent">Get Help Hearing Better Today</p>
+          <p className="eyebrow text-accent">Discover Better Hearing Solutions</p>
           <h1 className="mt-4 text-4xl font-bold uppercase leading-[1.05] text-ink sm:text-5xl lg:text-[3.4rem]">
-            You&apos;ve lived with hearing frustrations for years,{" "}
-            <span className="text-accent">solve them in one visit.</span>
+            Reconnect with{" "}
+            <span className="text-accent">the sounds and conversations you love.</span>
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            We know how exhausting it is to ask people to repeat themselves. By this weekend, you could
-            be hearing every word. One appointment, a clear plan, and conversations you&apos;ve been missing
-            becoming a thing of the past.
+            We provide comprehensive hearing evaluations and personalized care plans tailored to your
+            lifestyle. Schedule a consultation to explore modern options and take the first step toward
+            clear, natural sound.
           </p>
           <div className="mt-7 flex flex-wrap items-center gap-3">
             <a
