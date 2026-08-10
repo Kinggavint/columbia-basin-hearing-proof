@@ -71,7 +71,7 @@ export const SERVICES = [
   },
   {
     title: "Tinnitus Evaluation & Treatment",
-    body: "Led by Dr. Shannon Marie, a nationally renowned authority in tinnitus treatment, our practice stands at the forefront of comprehensive care for this condition. Dr. Marie's expertise extends to hosting an exclusive video series dedicated to counseling individuals coping with tinnitus. Whether through cutting-edge technology, specialized counseling, or aural rehabilitation, we possess the expertise and resources to alleviate the distress of tinnitus and restore your auditory well-being.",
+    body: "Led by Dr. Shannon Marie, a nationally renowned authority in tinnitus treatment, our practice stands at the forefront of comprehensive care for this condition. Dr. Marie's expertise extends to hosting an exclusive video series dedicated to counseling individuals coping with tinnitus. Whether through cutting-edge technology, specialized counseling, or aural rehabilitation, we possess the expertise and resources to help manage tinnitus symptoms and support your overall auditory wellness.",
   },
   {
     title: "Hearing Protection Devices",
@@ -79,7 +79,7 @@ export const SERVICES = [
   },
   {
     title: "Hearing Aid Cleaning & Repairs",
-    body: "From connectivity glitches to power concerns or requiring replacement parts, our adept team is equipped to address a myriad of device-related issues. Furthermore, we facilitate seamless communication with various manufacturers to swiftly restore your hearing to optimal levels. Additionally, we offer in-office device cleanings and humidity treatments, extending the longevity of your devices and ensuring they operate at peak performance for an extended period.",
+    body: "From connectivity glitches to power concerns or requiring replacement parts, our adept team is equipped to address a myriad of device-related issues. Furthermore, we facilitate seamless communication with various manufacturers to ensure your devices are functioning at peak performance. Additionally, we offer in-office device cleanings and humidity treatments, extending the longevity of your devices and ensuring they operate at peak performance for an extended period.",
   },
   {
     title: "Cochlear and Baha Evaluation, Programming & Mapping",

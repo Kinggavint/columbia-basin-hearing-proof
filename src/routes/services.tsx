@@ -32,7 +32,7 @@ const EVERYDAY = [
   },
   {
     title: "Tinnitus Management",
-    body: "Tinnitus can be a distressing condition, and effective management is essential for improving quality of life. We offer a range of therapies and techniques to help individuals manage their tinnitus symptoms.",
+    body: "Personalized tinnitus management options help you focus on daily life with confidence and clarity. We offer a range of therapies and techniques to help individuals manage their tinnitus symptoms.",
   },
   {
     title: "APD Testing (Auditory Processing Disorder)",

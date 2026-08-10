@@ -13,7 +13,7 @@ import { VideoGrid } from "@/components/site/video-grid";
 import { TINNITUS_SERIES, YT_EMBED } from "@/components/site/videos";
 
 const TITLE =
-  "Tinnitus Relief Management Program | Manage Tinnitus Effectively — Get Started Now — Columbia Basin Hearing Center";
+  "Tinnitus Management & Care Program | Manage Tinnitus Effectively — Get Started Now — Columbia Basin Hearing Center";
 const DESCRIPTION =
   "Explore Columbia Basin Hearing Center's Tinnitus Relief Management Program for personalized strategies to manage tinnitus symptoms effectively. Contact us today.";
 
@@ -128,7 +128,7 @@ function TinnitusProgram() {
   return (
     <SiteLayout>
       <PageHero
-        eyebrow="Tinnitus Relief Management"
+        eyebrow="Tinnitus Management & Care Program"
         title={
           <>
             Tinnitus options{" "}
@@ -224,7 +224,7 @@ function TinnitusProgram() {
       <Section tone="surface">
         <SectionHeading
           eyebrow={`${TINNITUS_SERIES.length} videos`}
-          title="Tinnitus Relief Management Series"
+          title="Tinnitus Management & Care Program Series"
           lead="Dr. Shannon Marie, a tinnitus sufferer herself, did an 8 week course for those who suffer from tinnitus but could not make office visits and who wished to find a way to find accurate and condensed information to aid them in taking the suffer out their ring! Now, these videos are available to all who want to view them free of charge, and with Dr. Shannon's best wishes for a happy and fulfilling existence, in spite of the sometimes negative effects of tinnitus!"
         />
         <VideoGrid videos={TINNITUS_SERIES} numbered />

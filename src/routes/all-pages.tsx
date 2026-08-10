@@ -35,7 +35,7 @@ const GROUPS = [
       { to: "/hearing-heroes", label: "Hearing Heroes" },
       { to: "/sound-shield-program", label: "Sound Shield Program" },
       { to: "/patient-ambassador-program", label: "Patient Ambassador Program" },
-      { to: "/tinnitus-relief-management-program", label: "Tinnitus Relief Management Program" },
+      { to: "/tinnitus-relief-management-program", label: "Tinnitus Management & Care Program" },
       { to: "/hearing-up", label: "Hearing UP" },
       { to: "/for-educators", label: "For Educators" },
       { to: "/third-party-payers", label: "Third Party Payers" },

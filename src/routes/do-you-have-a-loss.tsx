@@ -66,7 +66,7 @@ const SIGNS = [
   {
     title: "Changes in Behavior",
     points: [
-      "Exhibiting signs of depression, anxiety, or isolation due to communication difficulties.",
+      "Feeling distant or fatigued during group conversations due to communication challenges.",
       "Expressing frustration or annoyance when unable to hear or understand.",
     ],
   },

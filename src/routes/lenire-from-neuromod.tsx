@@ -137,7 +137,7 @@ function Lenire() {
               To learn more about the science behind Lenire and review the clinical trial data, ask
               our team — or start with our{" "}
               <TextLink to="/tinnitus-relief-management-program">
-                Tinnitus Relief Management program
+                Tinnitus Management & Care Program
               </TextLink>
               , which is free.
             </p>

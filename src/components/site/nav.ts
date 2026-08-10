@@ -23,7 +23,7 @@ export const NAV: NavItem[] = [
       { label: "Hearing Heroes", to: "/hearing-heroes" },
       { label: "Sound Shield Program", to: "/sound-shield-program" },
       { label: "Patient Ambassador Program", to: "/patient-ambassador-program" },
-      { label: "Tinnitus Relief Management", to: "/tinnitus-relief-management-program" },
+      { label: "Tinnitus Management & Care Program", to: "/tinnitus-relief-management-program" },
       { label: "Hearing UP", to: "/hearing-up" },
       { label: "For Educators", to: "/for-educators" },
       { label: "Third Party Payers", to: "/third-party-payers" },
