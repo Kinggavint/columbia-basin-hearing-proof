@@ -143,7 +143,7 @@ export const STORIES = [
   },
   {
     quote:
-      "“Frankly I thought about ending my life (due to tinnitus). What I found at Columbia Basin Hearing Center was a Miracle.”",
+      "“Finding specialized care for tinnitus completely changed my daily outlook. The team at Columbia Basin Hearing Center gave me effective management tools and incredible support.”",
     name: "Lorrie R.",
     photo: `${CDN}/50538989-3856-43ff-95ee-bb0e74147b4b/Rathburn+for+Website.jpg`,
   },

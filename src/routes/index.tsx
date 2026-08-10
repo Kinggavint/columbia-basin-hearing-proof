@@ -157,9 +157,8 @@ function Legacy() {
             Nearly 50 years of helping people hear what they&apos;ve been missing
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-            No more asking your spouse what the waiter said. No more turning the TV up until someone
-            complains. Just the conversations, the movies, the grandkids&apos; voices, exactly the way you
-            remember them.
+            Enjoy movie nights, family gatherings, and everyday conversations with clarity. Our
+            personalized approach helps you stay connected to the people and moments that matter most.
           </p>
         </div>
       </div>
@@ -243,12 +242,16 @@ function Services() {
 
 function Minimized() {
   const points = [
-    { strong: "CORRECTLY", pre: "Your problem is ", post: " diagnosed." },
-    { strong: "RIGHT", pre: "You receive the ", post: " kind of treatment." },
     {
-      strong: "EXPERIENCED HEALTH CARE PROFESSIONALS",
-      pre: "You are working together with the right team of ",
-      post: " who have the skill and resolve to solving the problem.",
+      strong: "comprehensive professional evaluation",
+      pre: "You undergo a ",
+      post: ".",
+    },
+    { strong: "personalized hearing care plan", pre: "You receive a ", post: "." },
+    {
+      strong: "experienced audiology professionals",
+      pre: "You partner with ",
+      post: " dedicated to your long-term hearing wellness.",
     },
   ];
   return (
