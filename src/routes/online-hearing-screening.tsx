@@ -102,7 +102,7 @@ function OnlineScreening() {
         </p>
       </Section>
 
-      <CallToAction body="Comprehensive evaluation, personalized guidance, and a clear path toward better everyday hearing. Call the clinic nearest you." />
+      <CallToAction />
     </SiteLayout>
   );
 }

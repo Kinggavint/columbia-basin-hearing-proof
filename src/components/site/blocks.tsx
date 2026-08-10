@@ -240,7 +240,7 @@ export function NumberedCard({
 /** Closing call-to-action used at the bottom of interior pages. */
 export function CallToAction({
   title = "Ready to hear what you've been missing?",
-  body = "One appointment, a clear plan, and a path back to the conversations that matter. Call the clinic nearest you.",
+  body = "Comprehensive evaluation, personalized guidance, and a clear path toward better everyday hearing. Call the clinic nearest you.",
 }: {
   title?: string;
   body?: string;

@@ -15,7 +15,7 @@ import { TINNITUS_SERIES, YT_EMBED } from "@/components/site/videos";
 const TITLE =
   "Tinnitus Management & Care Program | Manage Tinnitus Effectively — Get Started Now — Columbia Basin Hearing Center";
 const DESCRIPTION =
-  "Explore Columbia Basin Hearing Center's Tinnitus Relief Management Program for personalized strategies to manage tinnitus symptoms effectively. Contact us today.";
+  "Explore Columbia Basin Hearing Center's Tinnitus Management & Care Program for personalized strategies to manage tinnitus symptoms effectively. Contact us today.";
 
 const HABITUATION_SHEET =
   "https://www.columbiabasinhearing.com/s/CBHC-Sound-Therapy-and-Tinnitus-Habituation-Sheet-031824-1.pdf";
@@ -183,7 +183,7 @@ function TinnitusProgram() {
           <div>
             <SectionHeading
               eyebrow="Free of charge"
-              title="Dr. Marie's Tinnitus Relief Management program is here to help at no charge to you!"
+              title="Dr. Marie's Tinnitus Management & Care Program is here to help at no charge to you!"
             />
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
               If visiting our office for an evaluation isn&apos;t feasible, or if you need expert

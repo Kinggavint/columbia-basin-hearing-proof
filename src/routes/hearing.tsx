@@ -458,8 +458,8 @@ function FinalCta() {
           Ready to hear clearly again?
         </h2>
         <p className="mt-5 text-lg leading-relaxed text-ink-foreground/80">
-          One appointment, a clear plan, and a path back to the conversations you&apos;ve been missing.
-          Nearly 50 years of doing exactly this for Tri-Cities families.
+          A comprehensive evaluation, a personalized plan, and a clear path toward better everyday
+          hearing. Nearly 50 years of doing exactly this for Tri-Cities families.
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <a
