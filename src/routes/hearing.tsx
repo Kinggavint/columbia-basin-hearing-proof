@@ -11,9 +11,9 @@ const LANDING_TEL = "tel:15094107644";
 /** Published on the clinic's live contact page. */
 const CONTACT_EMAIL = "contactus@columbiabasinhearing.com";
 
-const TITLE = "Struggling to Hear? Schedule Your Evaluation | Columbia Basin Hearing Center";
+const TITLE = "Reconnect With Clear, Natural Sound | Schedule Your Evaluation | Columbia Basin Hearing Center";
 const DESCRIPTION =
-  "One appointment, a clear plan, and conversations you've been missing becoming a thing of the past. Nearly 50 years of audiology care in the Tri-Cities. Call now or request a callback.";
+  "Discover personalized hearing care plans and advanced technology designed to help you communicate with clarity and confidence. Nearly 50 years of audiology care in the Tri-Cities.";
 
 const SYMPTOMS = [
   "Turning the TV up until someone in the room complains",
@@ -191,13 +191,11 @@ function Hero() {
         <div>
           <p className="eyebrow text-accent">Nearly 50 Years of Care in the Tri-Cities</p>
           <h1 className="mt-4 text-4xl font-bold uppercase leading-[1.05] text-ink sm:text-5xl lg:text-[3.4rem]">
-            You&apos;ve lived with hearing loss for years.{" "}
-            <span className="text-accent">Solve it in one visit.</span>
+            Reconnect with <span className="text-accent">clear, natural sound.</span>
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            We know how exhausting it is to ask people to repeat themselves. By this weekend, you could
-            be hearing every word. One appointment, a clear plan, and conversations you&apos;ve been
-            missing becoming a thing of the past.
+            Discover personalized hearing care plans and advanced technology designed to help you
+            communicate with clarity and confidence.
           </p>
           <div className="mt-7">
             <a
@@ -298,8 +296,9 @@ function SymptomsSection() {
         ))}
       </ul>
       <p className="mt-10 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-        If even one of these sounds familiar, you don&apos;t have to keep managing around it. One visit
-        can tell you exactly what&apos;s going on &mdash; and exactly how to fix it.
+        Taking proactive steps toward your hearing health helps you stay connected to family, work, and
+        everyday conversations. A comprehensive evaluation gives you a clear understanding of your
+        options.
       </p>
       <a
         href={LANDING_TEL}
@@ -466,13 +465,13 @@ function FinalCta() {
             href={LANDING_TEL}
             className="rounded-full bg-background px-8 py-4 text-base font-semibold text-primary shadow-soft transition-opacity hover:opacity-90"
           >
-            Call Now: {LANDING_PHONE}
+            Schedule a Hearing Evaluation
           </a>
           <a
             href="#callback-form"
             className="rounded-full border border-ink-foreground/30 px-8 py-4 text-base font-semibold text-ink-foreground transition-colors hover:bg-ink-foreground/10"
           >
-            Request a Callback
+            Explore Care Options
           </a>
         </div>
       </div>
