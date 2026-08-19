@@ -3,6 +3,7 @@ import { SiteLayout } from "@/components/site/layout";
 import { CallToAction, PageHero, Section, SectionHeading, pageMeta } from "@/components/site/blocks";
 import { LOCATIONS, PRIMARY_PHONE, PRIMARY_TEL } from "@/components/site/content";
 import { PATIENT_PORTAL } from "@/components/site/nav";
+import { HoneypotField, LeadFormStatusMessage, useLeadForm } from "@/lib/lead-form";
 
 const TITLE =
   "Contact Us | Schedule Your Hearing Consultation Today — Columbia Basin Hearing Center";
@@ -22,30 +23,6 @@ const DIRECT_CONTACTS = [
     body: "Should you have any inquiries pertaining to sponsorships, partnerships or marketing, please contact us directly and ask for Carey Palazzo, our Practice Manager, or email cpalazzo@columbiabasinhearing.com.",
   },
 ];
-
-/** Published on the clinic's live contact page. */
-const CONTACT_EMAIL = "contactus@columbiabasinhearing.com";
-
-/**
- * No form backend exists yet, so the form composes a message in the visitor's own
- * mail client. `action="mailto:"` with method=post is unreliable across browsers;
- * building the URL ourselves is not. Replace this with a real endpoint before launch.
- */
-function openMailClient(e: React.FormEvent<HTMLFormElement>) {
-  e.preventDefault();
-  const data = new FormData(e.currentTarget);
-  const get = (k: string) => String(data.get(k) ?? "").trim();
-  const subject = `Website enquiry from ${get("firstName")} ${get("lastName")}`.trim();
-  const body = [
-    `Name: ${get("firstName")} ${get("lastName")}`,
-    `Email: ${get("email")}`,
-    `Phone: ${get("phone")}`,
-    "",
-    get("message"),
-  ].join("\n");
-  window.location.href =
-    `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}
 
 export const Route = createFileRoute("/contact-us")({
   head: () => pageMeta({ title: TITLE, description: DESCRIPTION }),
@@ -83,6 +60,8 @@ function Field({
 }
 
 function ContactUs() {
+  const { status, handleSubmit } = useLeadForm("New website enquiry — Contact Us page");
+
   return (
     <SiteLayout>
       <PageHero
@@ -100,7 +79,8 @@ function ContactUs() {
         <div className="grid gap-14 lg:grid-cols-[1.05fr_0.95fr]">
           <div>
             <SectionHeading eyebrow="Send a message" title="Tell us how we can help" />
-            <form className="mt-10 space-y-5" onSubmit={openMailClient}>
+            <form className="mt-10 space-y-5" onSubmit={handleSubmit}>
+              <HoneypotField />
               <div className="grid gap-5 sm:grid-cols-2">
                 <Field label="First name" name="firstName" required autoComplete="given-name" />
                 <Field label="Last name" name="lastName" required autoComplete="family-name" />
@@ -120,10 +100,12 @@ function ContactUs() {
               </label>
               <button
                 type="submit"
-                className="rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-soft transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                disabled={status === "submitting"}
+                className="rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-soft transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-60"
               >
-                Send message
+                {status === "submitting" ? "Sending…" : "Send message"}
               </button>
+              <LeadFormStatusMessage status={status} phone={PRIMARY_PHONE} tel={PRIMARY_TEL} />
               <p className="text-sm text-muted-foreground">
                 Prefer to talk now? Call{" "}
                 <a href={PRIMARY_TEL} className="font-semibold text-primary hover:underline">

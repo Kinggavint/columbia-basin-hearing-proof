@@ -1,15 +1,12 @@
-import type { FormEvent } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { IMG, LOCATIONS, RATING, STORIES } from "@/components/site/content";
 import { Wordmark } from "@/components/site/layout";
 import { CardGrid, NumberedCard, pageMeta, Section, SectionHeading } from "@/components/site/blocks";
+import { HoneypotField, LeadFormStatusMessage, useLeadForm } from "@/lib/lead-form";
 
 /** Campaign-specific tracking number — keep separate from PRIMARY_TEL so call attribution stays clean. */
 const LANDING_PHONE = "(509) 410-7644";
 const LANDING_TEL = "tel:15094107644";
-
-/** Published on the clinic's live contact page. */
-const CONTACT_EMAIL = "contactus@columbiabasinhearing.com";
 
 const TITLE = "Struggling to Hear? Schedule Your Evaluation | Columbia Basin Hearing Center";
 const DESCRIPTION =
@@ -51,27 +48,7 @@ export const Route = createFileRoute("/hearing")({
   component: HearingLanding,
 });
 
-/**
- * No form backend exists yet (same limitation as /contact-us), so the form composes
- * a message in the visitor's own mail client. Replace with a real endpoint before
- * spending ad budget against this page.
- */
-function openMailClient(e: FormEvent<HTMLFormElement>) {
-  e.preventDefault();
-  const data = new FormData(e.currentTarget);
-  const get = (k: string) => String(data.get(k) ?? "").trim();
-  const subject = `Callback request (hearing landing page) — ${get("firstName")} ${get("lastName")}`.trim();
-  const body = [
-    `Name: ${get("firstName")} ${get("lastName")}`,
-    `Phone: ${get("phone")}`,
-    `Best time to call: ${get("bestTime")}`,
-    `Nearest clinic: ${get("location")}`,
-    "",
-    get("message"),
-  ].join("\n");
-  window.location.href =
-    `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}
+const CALLBACK_SUBJECT = "New callback request — hearing landing page";
 
 function Field({
   label,
@@ -181,6 +158,8 @@ function LandingFooter() {
 }
 
 function Hero() {
+  const { status, handleSubmit } = useLeadForm(`${CALLBACK_SUBJECT} (hero form)`);
+
   return (
     <section className="relative overflow-hidden border-b border-border bg-surface">
       <div
@@ -238,16 +217,19 @@ function Hero() {
               <p className="mt-1 text-sm text-muted-foreground">
                 We&apos;ll call you back to schedule your visit.
               </p>
-              <form className="mt-6 space-y-4" onSubmit={openMailClient}>
+              <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
+                <HoneypotField />
                 <Field label="First name" name="firstName" required autoComplete="given-name" />
                 <Field label="Last name" name="lastName" required autoComplete="family-name" />
                 <Field label="Phone number" name="phone" type="tel" required autoComplete="tel" />
                 <button
                   type="submit"
-                  className="w-full rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-soft transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                  disabled={status === "submitting"}
+                  className="w-full rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-soft transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-60"
                 >
-                  Request My Callback
+                  {status === "submitting" ? "Sending…" : "Request My Callback"}
                 </button>
+                <LeadFormStatusMessage status={status} phone={LANDING_PHONE} tel={LANDING_TEL} />
               </form>
               <p className="mt-4 text-xs text-muted-foreground">
                 No obligation. We&apos;ll never share your information.
@@ -361,6 +343,8 @@ function SocialProofSection() {
 }
 
 function CallbackFormSection() {
+  const { status, handleSubmit } = useLeadForm(CALLBACK_SUBJECT);
+
   return (
     <Section id="callback-form" tone="surface">
       <div className="grid gap-14 lg:grid-cols-[1.05fr_0.95fr]">
@@ -370,7 +354,8 @@ function CallbackFormSection() {
             title="Request Your Callback"
             lead="Tell us the best way and time to reach you. A Patient Ambassador will call to schedule your hearing evaluation."
           />
-          <form className="mt-10 space-y-5" onSubmit={openMailClient}>
+          <form className="mt-10 space-y-5" onSubmit={handleSubmit}>
+            <HoneypotField />
             <div className="grid gap-5 sm:grid-cols-2">
               <Field label="First name" name="firstName" required autoComplete="given-name" />
               <Field label="Last name" name="lastName" required autoComplete="family-name" />
@@ -390,10 +375,12 @@ function CallbackFormSection() {
             </label>
             <button
               type="submit"
-              className="w-full rounded-full bg-primary px-7 py-4 text-base font-semibold text-primary-foreground shadow-soft transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 sm:w-auto"
+              disabled={status === "submitting"}
+              className="w-full rounded-full bg-primary px-7 py-4 text-base font-semibold text-primary-foreground shadow-soft transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-60 sm:w-auto"
             >
-              Request My Callback
+              {status === "submitting" ? "Sending…" : "Request My Callback"}
             </button>
+            <LeadFormStatusMessage status={status} phone={LANDING_PHONE} tel={LANDING_TEL} />
             <p className="text-sm text-muted-foreground">
               Prefer to talk now? Call{" "}
               <a href={LANDING_TEL} className="font-semibold text-primary hover:underline">
