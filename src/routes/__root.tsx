@@ -138,6 +138,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
     ],
+    // Google Ads (AW-) and Analytics (G-) share one gtag.js loader — the library is
+    // the same for both, so each product only needs its own config() call. Adding a
+    // second loader would just download gtag.js twice.
     scripts: [
       {
         async: true,
@@ -148,7 +151,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "window.dataLayer = window.dataLayer || [];\n" +
           "function gtag(){dataLayer.push(arguments);}\n" +
           "gtag('js', new Date());\n" +
-          "gtag('config', 'AW-962703891');",
+          "gtag('config', 'AW-962703891');\n" +
+          "gtag('config', 'G-XMVRK9J2QC');",
       },
     ],
   }),
