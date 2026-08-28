@@ -7,6 +7,13 @@ import type { FormEvent } from "react";
  */
 const ACCESS_KEY = "aec5d673-9edf-42b7-8cfe-266937efde1c";
 
+/**
+ * Copied on every submission alongside the inbox registered to ACCESS_KEY.
+ * Semicolon-separated; requires a Web3Forms Pro plan (the API rejects the whole
+ * submission with a 400 if CC is used without it).
+ */
+const CC_EMAILS = "cpalazzo@columbiabasinhearing.com";
+
 /** Google Ads lead-form conversion action. */
 const CONVERSION_SEND_TO = "AW-962703891/ugKRCN3wsuQcEJPkhssD";
 
@@ -50,6 +57,7 @@ export function useLeadForm(subject: string) {
           access_key: ACCESS_KEY,
           subject,
           from_name: "Columbia Basin Hearing Center website",
+          ccemail: CC_EMAILS,
           ...fields,
         }),
       });
