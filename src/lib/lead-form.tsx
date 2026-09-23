@@ -22,11 +22,12 @@ type Gtag = (command: string, eventName: string, params: Record<string, unknown>
 /**
  * Fired only after the form backend confirms the lead was received — never on
  * button click, so Google's count reflects delivered leads rather than intent.
+ * `extra` carries campaign context such as the promo code when one is running.
  */
-function trackLeadConversion() {
+function trackLeadConversion(extra?: Record<string, unknown>) {
   const { gtag } = window as unknown as { gtag?: Gtag };
   if (typeof gtag === "function") {
-    gtag("event", "conversion", { send_to: CONVERSION_SEND_TO });
+    gtag("event", "conversion", { send_to: CONVERSION_SEND_TO, ...extra });
   }
 }
 
@@ -68,7 +69,9 @@ export function useLeadForm(subject: string) {
       }
 
       setStatus("success");
-      trackLeadConversion();
+      // A promo form carries a hidden `promo` field; tag the conversion with it so
+      // campaign performance is separable in reporting.
+      trackLeadConversion(fields.promo ? { promo: fields.promo } : undefined);
       form.reset();
     } catch (error) {
       console.error(error);

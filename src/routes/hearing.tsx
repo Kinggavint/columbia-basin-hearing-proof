@@ -3,6 +3,7 @@ import { IMG, LOCATIONS, RATING, STORIES } from "@/components/site/content";
 import { Wordmark } from "@/components/site/layout";
 import { CardGrid, NumberedCard, pageMeta, Section, SectionHeading } from "@/components/site/blocks";
 import { HoneypotField, LeadFormStatusMessage, useLeadForm } from "@/lib/lead-form";
+import { PROMO_CODE, PromoBadge, PromoFinePrint, usePromoLive } from "@/lib/promo";
 
 /** Campaign-specific tracking number — keep separate from PRIMARY_TEL so call attribution stays clean. */
 const LANDING_PHONE = "(509) 410-7644";
@@ -159,6 +160,7 @@ function LandingFooter() {
 
 function Hero() {
   const { status, handleSubmit } = useLeadForm(`${CALLBACK_SUBJECT} (hero form)`);
+  const promoLive = usePromoLive();
 
   return (
     <section className="relative overflow-hidden border-b border-border bg-surface">
@@ -168,7 +170,11 @@ function Hero() {
       />
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 py-10 lg:grid-cols-[1.15fr_0.85fr] lg:py-14">
         <div>
-          <p className="eyebrow text-accent">Nearly 50 Years of Care in the Tri-Cities</p>
+          <p className="eyebrow text-accent">
+            {promoLive
+              ? "September Only: Up to $1,000 Off a Pair of Hearing Aids"
+              : "Nearly 50 Years of Care in the Tri-Cities"}
+          </p>
           <h1 className="mt-4 text-4xl font-bold uppercase leading-[1.05] text-ink sm:text-5xl lg:text-[3.4rem]">
             You&apos;ve lived with hearing loss for years.{" "}
             <span className="text-accent">Solve it in one visit.</span>
@@ -213,12 +219,19 @@ function Hero() {
           <div className="relative">
             <div aria-hidden="true" className="absolute -inset-2 rounded-[1.75rem] brand-gradient opacity-90" />
             <div className="relative rounded-2xl border border-border bg-card p-6 shadow-lift sm:p-8">
-              <h2 className="text-lg font-semibold text-ink">Request a Call Back</h2>
-              <p className="mt-1 text-sm text-muted-foreground">
-                We&apos;ll call you back to schedule your visit.
-              </p>
+              {promoLive && <PromoBadge />}
+              {/* Reserve the corner the xl seal occupies so the heading never runs under it. */}
+              <div className={promoLive ? "xl:pr-[16.5rem]" : undefined}>
+                <h2 className="text-lg font-semibold text-ink">Request a Call Back</h2>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  {promoLive
+                    ? "We'll call you back to schedule your visit and lock in up to $1,000 off."
+                    : "We'll call you back to schedule your visit."}
+                </p>
+              </div>
               <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
                 <HoneypotField />
+                {promoLive && <input type="hidden" name="promo" value={PROMO_CODE} />}
                 <Field label="First name" name="firstName" required autoComplete="given-name" />
                 <Field label="Last name" name="lastName" required autoComplete="family-name" />
                 <Field label="Phone number" name="phone" type="tel" required autoComplete="tel" />
@@ -227,13 +240,18 @@ function Hero() {
                   disabled={status === "submitting"}
                   className="w-full rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-soft transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-60"
                 >
-                  {status === "submitting" ? "Sending…" : "Request My Callback"}
+                  {status === "submitting"
+                    ? "Sending…"
+                    : promoLive
+                      ? "Claim My Savings"
+                      : "Request My Callback"}
                 </button>
                 <LeadFormStatusMessage status={status} phone={LANDING_PHONE} tel={LANDING_TEL} />
               </form>
               <p className="mt-4 text-xs text-muted-foreground">
                 No obligation. We&apos;ll never share your information.
               </p>
+              {promoLive && <PromoFinePrint className="mt-2 text-muted-foreground" />}
             </div>
           </div>
         </div>
@@ -344,6 +362,7 @@ function SocialProofSection() {
 
 function CallbackFormSection() {
   const { status, handleSubmit } = useLeadForm(CALLBACK_SUBJECT);
+  const promoLive = usePromoLive();
 
   return (
     <Section id="callback-form" tone="surface">
@@ -354,8 +373,14 @@ function CallbackFormSection() {
             title="Request Your Callback"
             lead="Tell us the best way and time to reach you. A Patient Ambassador will call to schedule your hearing evaluation."
           />
+          {promoLive && (
+            <p className="mt-6 text-lg font-semibold leading-relaxed text-primary">
+              Mention this offer to save up to $1,000 on a pair of hearing aids. Ends September 30.
+            </p>
+          )}
           <form className="mt-10 space-y-5" onSubmit={handleSubmit}>
             <HoneypotField />
+            {promoLive && <input type="hidden" name="promo" value={PROMO_CODE} />}
             <div className="grid gap-5 sm:grid-cols-2">
               <Field label="First name" name="firstName" required autoComplete="given-name" />
               <Field label="Last name" name="lastName" required autoComplete="family-name" />
@@ -378,8 +403,13 @@ function CallbackFormSection() {
               disabled={status === "submitting"}
               className="w-full rounded-full bg-primary px-7 py-4 text-base font-semibold text-primary-foreground shadow-soft transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-60 sm:w-auto"
             >
-              {status === "submitting" ? "Sending…" : "Request My Callback"}
+              {status === "submitting"
+                ? "Sending…"
+                : promoLive
+                  ? "Claim My Savings"
+                  : "Request My Callback"}
             </button>
+            {promoLive && <PromoFinePrint className="text-muted-foreground" />}
             <LeadFormStatusMessage status={status} phone={LANDING_PHONE} tel={LANDING_TEL} />
             <p className="text-sm text-muted-foreground">
               Prefer to talk now? Call{" "}
@@ -439,6 +469,8 @@ function CallbackFormSection() {
 }
 
 function FinalCta() {
+  const promoLive = usePromoLive();
+
   return (
     <Section tone="gradient">
       <div className="mx-auto max-w-3xl text-center">
@@ -449,6 +481,11 @@ function FinalCta() {
           A comprehensive evaluation, a personalized plan, and a clear path toward better everyday
           hearing. Nearly 50 years of doing exactly this for Tri-Cities families.
         </p>
+        {promoLive && (
+          <p className="mt-6 text-xl font-bold leading-relaxed text-ink-foreground">
+            Save up to $1,000 on a pair of hearing aids through September 30.
+          </p>
+        )}
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <a
             href={LANDING_TEL}
@@ -463,6 +500,9 @@ function FinalCta() {
             Explore Care Options
           </a>
         </div>
+        {promoLive && (
+          <PromoFinePrint className="mx-auto mt-6 max-w-2xl rounded-lg bg-ink/50 px-4 py-2 text-ink-foreground" />
+        )}
       </div>
     </Section>
   );

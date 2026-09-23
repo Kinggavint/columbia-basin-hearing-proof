@@ -43,6 +43,8 @@
   --color-ink-foreground: var(--ink-foreground);
   --color-surface: var(--surface);
   --color-surface-foreground: var(--surface-foreground);
+  --color-promo: var(--promo);
+  --color-promo-foreground: var(--promo-foreground);
   --color-sand: var(--sand);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
@@ -89,6 +91,12 @@
 
   --surface: oklch(0.972 0.008 220);
   --surface-foreground: oklch(0.24 0.045 245);
+
+  /* Promotional accent. Warm gold against the navy/teal palette so limited-time
+     offers read as distinct from the permanent brand colours. Navy on this gold
+     measures 6.5:1, clearing WCAG AA for normal text. */
+  --promo: #f2b134;
+  --promo-foreground: oklch(0.23 0.05 246);
 
   --sand: oklch(0.955 0.018 90);
 
