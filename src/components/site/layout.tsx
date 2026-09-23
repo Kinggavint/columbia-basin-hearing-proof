@@ -313,7 +313,14 @@ export function Footer() {
   );
 }
 
-export function SiteLayout({ children }: { children: React.ReactNode }) {
+export function SiteLayout({
+  children,
+  banner,
+}: {
+  children: React.ReactNode;
+  /** Optional strip rendered above the header, for example a promotional bar. */
+  banner?: React.ReactNode;
+}) {
   return (
     <div className="min-h-screen bg-background">
       <a
@@ -322,6 +329,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
       >
         Skip to content
       </a>
+      {banner}
       <Header />
       <main id="main">{children}</main>
       <Footer />

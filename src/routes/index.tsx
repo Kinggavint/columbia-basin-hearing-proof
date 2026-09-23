@@ -4,6 +4,7 @@ import { IMG, LOCATIONS, PRIMARY_TEL, PROVIDERS, RATING, REVIEWS, SERVICES, STOR
 import { SiteLayout } from "@/components/site/layout";
 import { LocationStrip } from "@/components/site/blocks";
 import { REVIEW_URL } from "@/components/site/nav";
+import { PromoBar, usePromoLive } from "@/lib/promo";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -460,8 +461,10 @@ function Community() {
 }
 
 function Index() {
+  const promoLive = usePromoLive();
+
   return (
-    <SiteLayout>
+    <SiteLayout banner={promoLive ? <PromoBar /> : undefined}>
       <Hero />
       <LocationStrip />
       <Legacy />

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "@tanstack/react-router";
 
 /**
  * Limited-time offer config. PROMO_ACTIVE is the on/off switch for every promo
@@ -80,6 +81,33 @@ export function PromoBadge() {
       <p className="mt-2 text-[11px] font-bold uppercase tracking-[0.14em] xl:text-xs">
         This month only
       </p>
+    </div>
+  );
+}
+
+/**
+ * Slim offer strip for the top of the homepage, linking through to the landing
+ * page that carries the full offer and its terms.
+ *
+ * The visible link text is "Click here", which tells a screen reader nothing on
+ * its own, so the link carries an aria-label describing where it goes.
+ */
+export function PromoBar() {
+  return (
+    <div className="bg-promo text-promo-foreground">
+      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-3 gap-y-1 px-6 py-3 text-center">
+        <p className="text-sm font-semibold sm:text-base">
+          Up to <span className="font-extrabold">$1,000 off</span> a pair of hearing aids. This
+          month only.
+        </p>
+        <Link
+          to="/hearing"
+          aria-label="Click here for up to $1,000 off a pair of hearing aids"
+          className="text-sm font-bold underline underline-offset-4 transition-opacity hover:opacity-80 focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-promo-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-promo sm:text-base"
+        >
+          Click here
+        </Link>
+      </div>
     </div>
   );
 }
