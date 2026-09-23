@@ -238,6 +238,17 @@ function Hero() {
                     ? "We'll call you back to schedule your visit and lock in up to $1,000 off."
                     : "We'll call you back to schedule your visit."}
                 </p>
+                {/* Callers who would rather not wait for a callback are the warmest
+                    leads on the page, so give them a tappable number up front. */}
+                <p className="mt-2 text-sm text-muted-foreground">
+                  or{" "}
+                  <a
+                    href={LANDING_TEL}
+                    className="font-semibold text-primary underline underline-offset-4 transition-opacity hover:opacity-80 focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                  >
+                    call {LANDING_PHONE} now
+                  </a>
+                </p>
               </div>
               <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
                 <HoneypotField />
