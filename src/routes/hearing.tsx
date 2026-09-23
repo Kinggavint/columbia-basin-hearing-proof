@@ -1,7 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { IMG, LOCATIONS, RATING, STORIES } from "@/components/site/content";
 import { Wordmark } from "@/components/site/layout";
-import { CardGrid, NumberedCard, pageMeta, Section, SectionHeading } from "@/components/site/blocks";
+import {
+  CardGrid,
+  NumberedCard,
+  pageMeta,
+  Section,
+  SectionHeading,
+} from "@/components/site/blocks";
 import { HoneypotField, LeadFormStatusMessage, useLeadForm } from "@/lib/lead-form";
 import { PROMO_CODE, PromoBadge, PromoFinePrint, usePromoLive } from "@/lib/promo";
 
@@ -150,8 +156,8 @@ function LandingFooter() {
           ))}
         </div>
         <p className="mt-6 text-xs text-ink-foreground/55">
-          &copy; {new Date().getFullYear()} Columbia Basin Hearing Center. Better Living Through Better
-          Hearing.
+          &copy; {new Date().getFullYear()} Columbia Basin Hearing Center. Better Living Through
+          Better Hearing.
         </p>
       </div>
     </footer>
@@ -172,7 +178,7 @@ function Hero() {
         <div>
           <p className="eyebrow text-accent">
             {promoLive
-              ? "September Only: Up to $1,000 Off a Pair of Hearing Aids"
+              ? "This Month Only: Up to $1,000 Off a Pair of Hearing Aids"
               : "Nearly 50 Years of Care in the Tri-Cities"}
           </p>
           <h1 className="mt-4 text-4xl font-bold uppercase leading-[1.05] text-ink sm:text-5xl lg:text-[3.4rem]">
@@ -180,9 +186,9 @@ function Hero() {
             <span className="text-accent">Solve it in one visit.</span>
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            We know how exhausting it is to ask people to repeat themselves. By this weekend, you could
-            be hearing every word. One appointment, a clear plan, and conversations you&apos;ve been
-            missing becoming a thing of the past.
+            We know how exhausting it is to ask people to repeat themselves. By this weekend, you
+            could be hearing every word. One appointment, a clear plan, and conversations
+            you&apos;ve been missing becoming a thing of the past.
           </p>
           <div className="mt-7">
             <a
@@ -210,18 +216,22 @@ function Hero() {
             </div>
             <div>
               <dt className="font-display text-3xl font-bold text-primary">3</dt>
-              <dd className="mt-1 text-xs text-muted-foreground sm:text-sm">Tri-Cities locations</dd>
+              <dd className="mt-1 text-xs text-muted-foreground sm:text-sm">
+                Tri-Cities locations
+              </dd>
             </div>
           </dl>
         </div>
 
         <div className="mx-auto w-full max-w-sm lg:mx-0 lg:max-w-none">
           <div className="relative">
-            <div aria-hidden="true" className="absolute -inset-2 rounded-[1.75rem] brand-gradient opacity-90" />
+            <div
+              aria-hidden="true"
+              className="absolute -inset-2 rounded-[1.75rem] brand-gradient opacity-90"
+            />
             <div className="relative rounded-2xl border border-border bg-card p-6 shadow-lift sm:p-8">
               {promoLive && <PromoBadge />}
-              {/* Reserve the corner the xl seal occupies so the heading never runs under it. */}
-              <div className={promoLive ? "xl:pr-[16.5rem]" : undefined}>
+              <div>
                 <h2 className="text-lg font-semibold text-ink">Request a Call Back</h2>
                 <p className="mt-1 text-sm text-muted-foreground">
                   {promoLive
@@ -298,9 +308,9 @@ function SymptomsSection() {
         ))}
       </ul>
       <p className="mt-10 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-        Taking proactive steps toward your hearing health helps you stay connected to family, work, and
-        everyday conversations. A comprehensive evaluation gives you a clear understanding of your
-        options.
+        Taking proactive steps toward your hearing health helps you stay connected to family, work,
+        and everyday conversations. A comprehensive evaluation gives you a clear understanding of
+        your options.
       </p>
       <a
         href={LANDING_TEL}
@@ -352,7 +362,9 @@ function SocialProofSection() {
               className="size-14 rounded-full bg-secondary object-cover"
             />
             <blockquote className="text-base leading-relaxed text-ink">{s.quote}</blockquote>
-            <figcaption className="text-sm font-semibold text-muted-foreground">{s.name}</figcaption>
+            <figcaption className="text-sm font-semibold text-muted-foreground">
+              {s.name}
+            </figcaption>
           </figure>
         ))}
       </div>
@@ -375,7 +387,7 @@ function CallbackFormSection() {
           />
           {promoLive && (
             <p className="mt-6 text-lg font-semibold leading-relaxed text-primary">
-              Mention this offer to save up to $1,000 on a pair of hearing aids. Ends September 30.
+              Mention this offer to save up to $1,000 on a pair of hearing aids. This month only.
             </p>
           )}
           <form className="mt-10 space-y-5" onSubmit={handleSubmit}>
@@ -387,8 +399,16 @@ function CallbackFormSection() {
             </div>
             <Field label="Phone number" name="phone" type="tel" required autoComplete="tel" />
             <div className="grid gap-5 sm:grid-cols-2">
-              <SelectField label="Best time to call" name="bestTime" options={["Morning", "Afternoon", "Evening"]} />
-              <SelectField label="Nearest clinic" name="location" options={LOCATIONS.map((l) => l.city)} />
+              <SelectField
+                label="Best time to call"
+                name="bestTime"
+                options={["Morning", "Afternoon", "Evening"]}
+              />
+              <SelectField
+                label="Nearest clinic"
+                name="location"
+                options={LOCATIONS.map((l) => l.city)}
+              />
             </div>
             <label className="block">
               <span className="text-sm font-semibold text-ink">Anything we should know?</span>
@@ -483,7 +503,7 @@ function FinalCta() {
         </p>
         {promoLive && (
           <p className="mt-6 text-xl font-bold leading-relaxed text-ink-foreground">
-            Save up to $1,000 on a pair of hearing aids through September 30.
+            Save up to $1,000 on a pair of hearing aids. This month only.
           </p>
         )}
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
