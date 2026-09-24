@@ -49,7 +49,7 @@ const DONORS = [
 ];
 
 export const Route = createFileRoute("/hearing-heroes")({
-  head: () => pageMeta({ title: TITLE, description: DESCRIPTION }),
+  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, path: "/hearing-heroes" }),
   component: HearingHeroes,
 });
 

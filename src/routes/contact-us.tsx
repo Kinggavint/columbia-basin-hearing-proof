@@ -1,7 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/layout";
 import { CallToAction, PageHero, Section, SectionHeading, pageMeta } from "@/components/site/blocks";
-import { LOCATIONS, PRIMARY_PHONE, PRIMARY_TEL } from "@/components/site/content";
+import { PRIMARY_PHONE, PRIMARY_TEL } from "@/components/site/content";
+import { CLINICS } from "@/components/site/locations";
 import { PATIENT_PORTAL } from "@/components/site/nav";
 import { HoneypotField, LeadFormStatusMessage, useLeadForm } from "@/lib/lead-form";
 
@@ -25,7 +26,7 @@ const DIRECT_CONTACTS = [
 ];
 
 export const Route = createFileRoute("/contact-us")({
-  head: () => pageMeta({ title: TITLE, description: DESCRIPTION }),
+  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, path: "/contact-us" }),
   component: ContactUs,
 });
 
@@ -148,7 +149,7 @@ function ContactUs() {
           lead="Kennewick, West Richland, and Walla Walla — each with its own direct line."
         />
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
-          {LOCATIONS.map((loc) => (
+          {CLINICS.map((loc) => (
             <article
               key={loc.city}
               className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-soft"
@@ -167,7 +168,21 @@ function ContactUs() {
                   <br />
                   {loc.cityStateZip}
                 </address>
+                <dl className="mt-5 space-y-1.5 border-t border-border pt-5">
+                  {loc.hours.display.map((row) => (
+                    <div key={row.days} className="flex flex-wrap justify-between gap-x-4">
+                      <dt className="text-sm text-muted-foreground">{row.days}</dt>
+                      <dd className="text-sm font-semibold text-ink">{row.hours}</dd>
+                    </div>
+                  ))}
+                </dl>
                 <div className="mt-auto pt-6">
+                  <Link
+                    to={`/${loc.slug}`}
+                    className="mb-3 block text-center text-sm font-semibold text-primary underline underline-offset-4"
+                  >
+                    {loc.city} clinic details
+                  </Link>
                   <a
                     href={loc.tel}
                     className="block rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"

@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { LOCATIONS, PRIMARY_PHONE, PRIMARY_TEL } from "./content";
+import { canonicalUrl } from "@/lib/site";
 
 /** Page-level hero used by every interior page. */
 export function PageHero({
@@ -241,9 +242,18 @@ export function NumberedCard({
 export function CallToAction({
   title = "Ready to hear what you've been missing?",
   body = "Comprehensive evaluation, personalized guidance, and a clear path toward better everyday hearing. Call the clinic nearest you.",
+  phone = PRIMARY_PHONE,
+  tel = PRIMARY_TEL,
 }: {
   title?: string;
   body?: string;
+  /**
+   * Overrides the headline call button. A location page must lead with its own
+   * clinic's number: sending a West Richland or Walla Walla visitor to the
+   * Kennewick line both wastes the click and corrupts per-clinic call tracking.
+   */
+  phone?: string;
+  tel?: string;
 }) {
   return (
     <Section tone="gradient">
@@ -252,8 +262,8 @@ export function CallToAction({
           <h2 className="text-3xl font-bold leading-tight text-ink-foreground sm:text-4xl">{title}</h2>
           <p className="mt-5 text-lg leading-relaxed text-ink-foreground/80">{body}</p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <ButtonLink href={PRIMARY_TEL} variant="onDark">
-              Call {PRIMARY_PHONE}
+            <ButtonLink href={tel} variant="onDark">
+              Call {phone}
             </ButtonLink>
             <Link
               to="/contact-us"
@@ -343,12 +353,22 @@ export function pageMeta({
   title,
   description,
   image,
+  path,
 }: {
   title: string;
   description: string;
   image?: string;
+  /**
+   * Route path for this page, e.g. "/kennewick". Supplying it adds a self
+   * canonical and og:url, which every indexable page should carry so that
+   * query strings (gclid, utm_*, fbclid) consolidate onto one URL instead of
+   * splitting ranking signals across dozens of near-duplicates.
+   */
+  path?: string;
 }) {
   const og = image ?? "https://images.squarespace-cdn.com/content/v1/6627c873af0c127944582e9e/c8ffc0e6-4cea-45b5-9e54-e321e5970f77/Hearing+Small+Size.jpg";
+  const url = path === undefined ? undefined : canonicalUrl(path);
+
   return {
     meta: [
       { title },
@@ -357,10 +377,12 @@ export function pageMeta({
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { property: "og:image", content: og },
+      ...(url ? [{ property: "og:url", content: url }] : []),
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: title },
       { name: "twitter:description", content: description },
       { name: "twitter:image", content: og },
     ],
+    ...(url ? { links: [{ rel: "canonical", href: url }] } : {}),
   };
 }

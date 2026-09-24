@@ -13,5 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-# Add the absolute sitemap URL at launch, e.g.:
-# Sitemap: https://www.columbiabasinhearing.com/sitemap.xml
+Sitemap: https://www.columbiabasinhearing.com/sitemap.xml

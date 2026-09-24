@@ -20,7 +20,7 @@ const LEAD_PHOTO =
   "https://images.squarespace-cdn.com/content/v1/6627c873af0c127944582e9e/a812b57b-0bf8-4ddf-959b-35977a99570f/CBH-02.jpg";
 
 export const Route = createFileRoute("/about-us")({
-  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: LEAD_PHOTO }),
+  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: LEAD_PHOTO, path: "/about-us" }),
   component: AboutUs,
 });
 

@@ -10,7 +10,7 @@ const DESCRIPTION =
   "We offer the best in hearing supplies to our dedicated audiences, ensuring an excellent experience and product, everytime!";
 
 export const Route = createFileRoute("/online-store/")({
-  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: IMG.storeGraphic }),
+  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: IMG.storeGraphic, path: "/online-store" }),
   component: OnlineStore,
 });
 

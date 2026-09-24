@@ -32,7 +32,7 @@ const WHAT_IT_IS = [
 ];
 
 export const Route = createFileRoute("/online-hearing-screening")({
-  head: () => pageMeta({ title: TITLE, description: DESCRIPTION }),
+  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, path: "/online-hearing-screening" }),
   component: OnlineScreening,
 });
 

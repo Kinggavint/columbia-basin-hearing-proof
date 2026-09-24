@@ -61,7 +61,7 @@ function CheckList({ items }: { items: string[] }) {
 }
 
 export const Route = createFileRoute("/lace-ai-pro")({
-  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: APP_MOCKUP }),
+  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: APP_MOCKUP, path: "/lace-ai-pro" }),
   component: LaceAiPro,
 });
 

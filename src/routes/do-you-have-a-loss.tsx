@@ -112,7 +112,7 @@ const STEPS = [
 ];
 
 export const Route = createFileRoute("/do-you-have-a-loss")({
-  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: HERO_PHOTO }),
+  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: HERO_PHOTO, path: "/do-you-have-a-loss" }),
   component: DoYouHaveALoss,
 });
 

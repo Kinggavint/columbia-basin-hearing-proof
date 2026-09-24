@@ -24,12 +24,13 @@ export const Route = createFileRoute("/online-store/p/$slug")({
       .slice(0, 4);
     return { product, siblings };
   },
-  head: ({ loaderData }) => {
+  head: ({ loaderData, params }) => {
     const p = loaderData?.product;
     return pageMeta({
       title: `${p?.title ?? "Product"} — Columbia Basin Hearing Center`,
       description: p?.body[0] ?? "Hearing supplies from Columbia Basin Hearing Center.",
       image: p?.images[0],
+      path: params.slug ? `/online-store/p/${params.slug}` : undefined,
     });
   },
   component: ProductPage,

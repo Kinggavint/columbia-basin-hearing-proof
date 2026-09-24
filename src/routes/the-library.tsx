@@ -30,7 +30,7 @@ function DocIcon() {
 }
 
 export const Route = createFileRoute("/the-library")({
-  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: LIBRARY_HERO }),
+  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: LIBRARY_HERO, path: "/the-library" }),
   component: TheLibrary,
 });
 

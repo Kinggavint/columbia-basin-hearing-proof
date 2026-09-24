@@ -45,7 +45,7 @@ const PILLARS = [
 ];
 
 export const Route = createFileRoute("/lenire-from-neuromod")({
-  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: HERO_PHOTO }),
+  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: HERO_PHOTO, path: "/lenire-from-neuromod" }),
   component: Lenire,
 });
 

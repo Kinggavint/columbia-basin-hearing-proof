@@ -5,6 +5,7 @@ import { SiteLayout } from "@/components/site/layout";
 import { LocationStrip } from "@/components/site/blocks";
 import { REVIEW_URL } from "@/components/site/nav";
 import { PromoBar, usePromoLive } from "@/lib/promo";
+import { canonicalUrl } from "@/lib/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -22,10 +23,12 @@ export const Route = createFileRoute("/")({
           "Doctors of Audiology in Kennewick, West Richland and Walla Walla. Comprehensive hearing evaluations, tinnitus treatment and hearing aid care for nearly 50 years.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: canonicalUrl("/") },
       { property: "og:image", content: IMG.listening },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: IMG.listening },
     ],
+    links: [{ rel: "canonical", href: canonicalUrl("/") }],
   }),
   component: Index,
 });
@@ -87,7 +90,14 @@ function Hero() {
             You&apos;ve lived with hearing frustrations for years,{" "}
             <span className="text-accent">solve them in one visit.</span>
           </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+          {/* Names the three cities and the Tri-Cities in the subhead so the
+              homepage carries its local relevance without disturbing the H1
+              wording the practice chose. */}
+          <p className="mt-4 text-lg font-semibold text-primary sm:text-xl">
+            Doctors of Audiology in Kennewick, West Richland and Walla Walla, serving the Tri-Cities
+            and the Columbia Basin.
+          </p>
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
             We know how exhausting it is to ask people to repeat themselves. By this weekend, you could
             be hearing every word. One appointment, a clear plan, and conversations you&apos;ve been missing
             becoming a thing of the past.

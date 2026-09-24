@@ -10,7 +10,7 @@ export const Route = createFileRoute("/online-store/$category")({
     if (!category) throw notFound();
     return { category, products: productsIn(category.slug) };
   },
-  head: ({ loaderData }) => {
+  head: ({ loaderData, params }) => {
     const name = loaderData?.category.name ?? "Online Store";
     return pageMeta({
       title: `${name} — Online Hearing Supplies — Columbia Basin Hearing Center`,
@@ -18,6 +18,7 @@ export const Route = createFileRoute("/online-store/$category")({
         loaderData?.category.blurb ??
         "We offer the best in hearing supplies to our dedicated audiences, ensuring an excellent experience and product, everytime!",
       image: loaderData?.products[0]?.images[0],
+      path: params.category ? `/online-store/${params.category}` : undefined,
     });
   },
   component: CategoryPage,

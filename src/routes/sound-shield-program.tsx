@@ -44,7 +44,7 @@ const REASONS = [
 ];
 
 export const Route = createFileRoute("/sound-shield-program")({
-  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: HERO_PHOTO }),
+  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: HERO_PHOTO, path: "/sound-shield-program" }),
   component: SoundShield,
 });
 

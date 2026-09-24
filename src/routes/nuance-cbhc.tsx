@@ -21,7 +21,7 @@ const BEAMFORMING = `${CDN}/4378c9ed-b8e1-4b74-b7a6-f40047d7cf93/Luxottica_Nuanc
 const GLASSES = `${CDN}/5dbf60a1-7d4b-4f2b-ae87-33cf2e786f48/luxottica-nuance-audio-glasses-670px.jpg`;
 
 export const Route = createFileRoute("/nuance-cbhc")({
-  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: HERO_PHOTO }),
+  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: HERO_PHOTO, path: "/nuance-cbhc" }),
   component: Nuance,
 });
 

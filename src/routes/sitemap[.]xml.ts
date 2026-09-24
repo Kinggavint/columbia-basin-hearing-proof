@@ -1,8 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-
-// TODO: set this to the production origin once the domain is pointed at this site.
-const BASE_URL = "";
+import { canonicalUrl } from "@/lib/site";
 
 interface SitemapEntry {
   path: string;
@@ -13,6 +11,10 @@ interface SitemapEntry {
 
 /** Every content page, in rough order of importance. */
 const CONTENT_PATHS = [
+  "/locations",
+  "/kennewick",
+  "/west-richland",
+  "/walla-walla",
   "/about-us",
   "/services",
   "/do-you-have-a-loss",
@@ -35,6 +37,9 @@ const CONTENT_PATHS = [
   "/video-library",
 ];
 
+/** Paths that carry the local-SEO weight. */
+const LOCAL_PATHS = new Set(["/locations", "/kennewick", "/west-richland", "/walla-walla"]);
+
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
@@ -44,14 +49,16 @@ export const Route = createFileRoute("/sitemap.xml")({
           ...CONTENT_PATHS.map((path) => ({
             path,
             changefreq: "monthly" as const,
-            priority: "0.8",
+            // The locations hub and the three clinic pages are the pages local
+            // search should land on, so they sit above the rest of the site.
+            priority: LOCAL_PATHS.has(path) ? "0.9" : "0.8",
           })),
         ];
 
         const urls = entries.map((e) =>
           [
             `  <url>`,
-            `    <loc>${BASE_URL}${e.path}</loc>`,
+            `    <loc>${canonicalUrl(e.path)}</loc>`,
             e.lastmod ? `    <lastmod>${e.lastmod}</lastmod>` : null,
             e.changefreq ? `    <changefreq>${e.changefreq}</changefreq>` : null,
             e.priority ? `    <priority>${e.priority}</priority>` : null,

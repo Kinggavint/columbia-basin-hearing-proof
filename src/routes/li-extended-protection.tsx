@@ -38,7 +38,7 @@ const COVERAGE = [
 ];
 
 export const Route = createFileRoute("/li-extended-protection")({
-  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: HERO_PHOTO }),
+  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: HERO_PHOTO, path: "/li-extended-protection" }),
   component: LIExtendedProtection,
 });
 

@@ -7,6 +7,16 @@ export const NAV: NavItem[] = [
   { label: "About Us", to: "/about-us" },
   { label: "Services", to: "/services" },
   {
+    label: "Locations",
+    to: "/locations",
+    children: [
+      { label: "All locations", to: "/locations" },
+      { label: "Kennewick", to: "/kennewick" },
+      { label: "West Richland", to: "/west-richland" },
+      { label: "Walla Walla", to: "/walla-walla" },
+    ],
+  },
+  {
     label: "Do You Have a Loss?",
     to: "/do-you-have-a-loss",
     children: [

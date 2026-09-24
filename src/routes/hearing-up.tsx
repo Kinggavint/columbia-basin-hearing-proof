@@ -32,7 +32,7 @@ const NETWORK = [
 ];
 
 export const Route = createFileRoute("/hearing-up")({
-  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: HERO_PHOTO }),
+  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: HERO_PHOTO, path: "/hearing-up" }),
   component: HearingUp,
 });
 

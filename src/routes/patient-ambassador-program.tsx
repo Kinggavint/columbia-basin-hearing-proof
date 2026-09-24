@@ -39,7 +39,7 @@ const STEPS = [
 ];
 
 export const Route = createFileRoute("/patient-ambassador-program")({
-  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: FRIENDS_PHOTO }),
+  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: FRIENDS_PHOTO, path: "/patient-ambassador-program" }),
   component: PatientAmbassador,
 });
 

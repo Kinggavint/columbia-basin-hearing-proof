@@ -62,7 +62,7 @@ const TIPS = [
 ];
 
 export const Route = createFileRoute("/effectively-communicating-with-a-hearing-loss")({
-  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: HERO_PHOTO }),
+  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: HERO_PHOTO, path: "/effectively-communicating-with-a-hearing-loss" }),
   component: EffectiveCommunication,
 });
 

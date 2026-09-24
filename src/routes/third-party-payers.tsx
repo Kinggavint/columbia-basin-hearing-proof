@@ -39,7 +39,7 @@ const IMPACT = [
 ];
 
 export const Route = createFileRoute("/third-party-payers")({
-  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: HERO_PHOTO }),
+  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: HERO_PHOTO, path: "/third-party-payers" }),
   component: ThirdPartyPayers,
 });
 

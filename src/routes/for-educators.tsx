@@ -25,7 +25,7 @@ const STATS = [
 ];
 
 export const Route = createFileRoute("/for-educators")({
-  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: HERO_PHOTO }),
+  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: HERO_PHOTO, path: "/for-educators" }),
   component: ForEducators,
 });
 

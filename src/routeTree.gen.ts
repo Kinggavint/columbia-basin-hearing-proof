@@ -9,6 +9,8 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WestRichlandRouteImport } from './routes/west-richland'
+import { Route as WallaWallaRouteImport } from './routes/walla-walla'
 import { Route as VideoLibraryRouteImport } from './routes/video-library'
 import { Route as TinnitusReliefManagementProgramRouteImport } from './routes/tinnitus-relief-management-program'
 import { Route as ThirdPartyPayersRouteImport } from './routes/third-party-payers'
@@ -21,9 +23,11 @@ import { Route as PatientAmbassadorProgramRouteImport } from './routes/patient-a
 import { Route as OtcLegislationRouteImport } from './routes/otc-legislation'
 import { Route as OnlineHearingScreeningRouteImport } from './routes/online-hearing-screening'
 import { Route as NuanceCbhcRouteImport } from './routes/nuance-cbhc'
+import { Route as LocationsRouteImport } from './routes/locations'
 import { Route as LiExtendedProtectionRouteImport } from './routes/li-extended-protection'
 import { Route as LenireFromNeuromodRouteImport } from './routes/lenire-from-neuromod'
 import { Route as LaceAiProRouteImport } from './routes/lace-ai-pro'
+import { Route as KennewickRouteImport } from './routes/kennewick'
 import { Route as HomeRouteImport } from './routes/home'
 import { Route as HearingUpRouteImport } from './routes/hearing-up'
 import { Route as HearingHeroesRouteImport } from './routes/hearing-heroes'
@@ -39,6 +43,16 @@ import { Route as OnlineStoreIndexRouteImport } from './routes/online-store/inde
 import { Route as OnlineStoreCategoryRouteImport } from './routes/online-store/$category'
 import { Route as OnlineStorePSlugRouteImport } from './routes/online-store/p.$slug'
 
+const WestRichlandRoute = WestRichlandRouteImport.update({
+  id: '/west-richland',
+  path: '/west-richland',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WallaWallaRoute = WallaWallaRouteImport.update({
+  id: '/walla-walla',
+  path: '/walla-walla',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const VideoLibraryRoute = VideoLibraryRouteImport.update({
   id: '/video-library',
   path: '/video-library',
@@ -102,6 +116,11 @@ const NuanceCbhcRoute = NuanceCbhcRouteImport.update({
   path: '/nuance-cbhc',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LocationsRoute = LocationsRouteImport.update({
+  id: '/locations',
+  path: '/locations',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LiExtendedProtectionRoute = LiExtendedProtectionRouteImport.update({
   id: '/li-extended-protection',
   path: '/li-extended-protection',
@@ -115,6 +134,11 @@ const LenireFromNeuromodRoute = LenireFromNeuromodRouteImport.update({
 const LaceAiProRoute = LaceAiProRouteImport.update({
   id: '/lace-ai-pro',
   path: '/lace-ai-pro',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KennewickRoute = KennewickRouteImport.update({
+  id: '/kennewick',
+  path: '/kennewick',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HomeRoute = HomeRouteImport.update({
@@ -201,9 +225,11 @@ export interface FileRoutesByFullPath {
   '/hearing-heroes': typeof HearingHeroesRoute
   '/hearing-up': typeof HearingUpRoute
   '/home': typeof HomeRoute
+  '/kennewick': typeof KennewickRoute
   '/lace-ai-pro': typeof LaceAiProRoute
   '/lenire-from-neuromod': typeof LenireFromNeuromodRoute
   '/li-extended-protection': typeof LiExtendedProtectionRoute
+  '/locations': typeof LocationsRoute
   '/nuance-cbhc': typeof NuanceCbhcRoute
   '/online-hearing-screening': typeof OnlineHearingScreeningRoute
   '/otc-legislation': typeof OtcLegislationRoute
@@ -216,6 +242,8 @@ export interface FileRoutesByFullPath {
   '/third-party-payers': typeof ThirdPartyPayersRoute
   '/tinnitus-relief-management-program': typeof TinnitusReliefManagementProgramRoute
   '/video-library': typeof VideoLibraryRoute
+  '/walla-walla': typeof WallaWallaRoute
+  '/west-richland': typeof WestRichlandRoute
   '/online-store/$category': typeof OnlineStoreCategoryRoute
   '/online-store/': typeof OnlineStoreIndexRoute
   '/online-store/p/$slug': typeof OnlineStorePSlugRoute
@@ -232,9 +260,11 @@ export interface FileRoutesByTo {
   '/hearing-heroes': typeof HearingHeroesRoute
   '/hearing-up': typeof HearingUpRoute
   '/home': typeof HomeRoute
+  '/kennewick': typeof KennewickRoute
   '/lace-ai-pro': typeof LaceAiProRoute
   '/lenire-from-neuromod': typeof LenireFromNeuromodRoute
   '/li-extended-protection': typeof LiExtendedProtectionRoute
+  '/locations': typeof LocationsRoute
   '/nuance-cbhc': typeof NuanceCbhcRoute
   '/online-hearing-screening': typeof OnlineHearingScreeningRoute
   '/otc-legislation': typeof OtcLegislationRoute
@@ -247,6 +277,8 @@ export interface FileRoutesByTo {
   '/third-party-payers': typeof ThirdPartyPayersRoute
   '/tinnitus-relief-management-program': typeof TinnitusReliefManagementProgramRoute
   '/video-library': typeof VideoLibraryRoute
+  '/walla-walla': typeof WallaWallaRoute
+  '/west-richland': typeof WestRichlandRoute
   '/online-store/$category': typeof OnlineStoreCategoryRoute
   '/online-store': typeof OnlineStoreIndexRoute
   '/online-store/p/$slug': typeof OnlineStorePSlugRoute
@@ -264,9 +296,11 @@ export interface FileRoutesById {
   '/hearing-heroes': typeof HearingHeroesRoute
   '/hearing-up': typeof HearingUpRoute
   '/home': typeof HomeRoute
+  '/kennewick': typeof KennewickRoute
   '/lace-ai-pro': typeof LaceAiProRoute
   '/lenire-from-neuromod': typeof LenireFromNeuromodRoute
   '/li-extended-protection': typeof LiExtendedProtectionRoute
+  '/locations': typeof LocationsRoute
   '/nuance-cbhc': typeof NuanceCbhcRoute
   '/online-hearing-screening': typeof OnlineHearingScreeningRoute
   '/otc-legislation': typeof OtcLegislationRoute
@@ -279,6 +313,8 @@ export interface FileRoutesById {
   '/third-party-payers': typeof ThirdPartyPayersRoute
   '/tinnitus-relief-management-program': typeof TinnitusReliefManagementProgramRoute
   '/video-library': typeof VideoLibraryRoute
+  '/walla-walla': typeof WallaWallaRoute
+  '/west-richland': typeof WestRichlandRoute
   '/online-store/$category': typeof OnlineStoreCategoryRoute
   '/online-store/': typeof OnlineStoreIndexRoute
   '/online-store/p/$slug': typeof OnlineStorePSlugRoute
@@ -297,9 +333,11 @@ export interface FileRouteTypes {
     | '/hearing-heroes'
     | '/hearing-up'
     | '/home'
+    | '/kennewick'
     | '/lace-ai-pro'
     | '/lenire-from-neuromod'
     | '/li-extended-protection'
+    | '/locations'
     | '/nuance-cbhc'
     | '/online-hearing-screening'
     | '/otc-legislation'
@@ -312,6 +350,8 @@ export interface FileRouteTypes {
     | '/third-party-payers'
     | '/tinnitus-relief-management-program'
     | '/video-library'
+    | '/walla-walla'
+    | '/west-richland'
     | '/online-store/$category'
     | '/online-store/'
     | '/online-store/p/$slug'
@@ -328,9 +368,11 @@ export interface FileRouteTypes {
     | '/hearing-heroes'
     | '/hearing-up'
     | '/home'
+    | '/kennewick'
     | '/lace-ai-pro'
     | '/lenire-from-neuromod'
     | '/li-extended-protection'
+    | '/locations'
     | '/nuance-cbhc'
     | '/online-hearing-screening'
     | '/otc-legislation'
@@ -343,6 +385,8 @@ export interface FileRouteTypes {
     | '/third-party-payers'
     | '/tinnitus-relief-management-program'
     | '/video-library'
+    | '/walla-walla'
+    | '/west-richland'
     | '/online-store/$category'
     | '/online-store'
     | '/online-store/p/$slug'
@@ -359,9 +403,11 @@ export interface FileRouteTypes {
     | '/hearing-heroes'
     | '/hearing-up'
     | '/home'
+    | '/kennewick'
     | '/lace-ai-pro'
     | '/lenire-from-neuromod'
     | '/li-extended-protection'
+    | '/locations'
     | '/nuance-cbhc'
     | '/online-hearing-screening'
     | '/otc-legislation'
@@ -374,6 +420,8 @@ export interface FileRouteTypes {
     | '/third-party-payers'
     | '/tinnitus-relief-management-program'
     | '/video-library'
+    | '/walla-walla'
+    | '/west-richland'
     | '/online-store/$category'
     | '/online-store/'
     | '/online-store/p/$slug'
@@ -391,9 +439,11 @@ export interface RootRouteChildren {
   HearingHeroesRoute: typeof HearingHeroesRoute
   HearingUpRoute: typeof HearingUpRoute
   HomeRoute: typeof HomeRoute
+  KennewickRoute: typeof KennewickRoute
   LaceAiProRoute: typeof LaceAiProRoute
   LenireFromNeuromodRoute: typeof LenireFromNeuromodRoute
   LiExtendedProtectionRoute: typeof LiExtendedProtectionRoute
+  LocationsRoute: typeof LocationsRoute
   NuanceCbhcRoute: typeof NuanceCbhcRoute
   OnlineHearingScreeningRoute: typeof OnlineHearingScreeningRoute
   OtcLegislationRoute: typeof OtcLegislationRoute
@@ -406,6 +456,8 @@ export interface RootRouteChildren {
   ThirdPartyPayersRoute: typeof ThirdPartyPayersRoute
   TinnitusReliefManagementProgramRoute: typeof TinnitusReliefManagementProgramRoute
   VideoLibraryRoute: typeof VideoLibraryRoute
+  WallaWallaRoute: typeof WallaWallaRoute
+  WestRichlandRoute: typeof WestRichlandRoute
   OnlineStoreCategoryRoute: typeof OnlineStoreCategoryRoute
   OnlineStoreIndexRoute: typeof OnlineStoreIndexRoute
   OnlineStorePSlugRoute: typeof OnlineStorePSlugRoute
@@ -413,6 +465,20 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/west-richland': {
+      id: '/west-richland'
+      path: '/west-richland'
+      fullPath: '/west-richland'
+      preLoaderRoute: typeof WestRichlandRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/walla-walla': {
+      id: '/walla-walla'
+      path: '/walla-walla'
+      fullPath: '/walla-walla'
+      preLoaderRoute: typeof WallaWallaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/video-library': {
       id: '/video-library'
       path: '/video-library'
@@ -497,6 +563,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NuanceCbhcRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/locations': {
+      id: '/locations'
+      path: '/locations'
+      fullPath: '/locations'
+      preLoaderRoute: typeof LocationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/li-extended-protection': {
       id: '/li-extended-protection'
       path: '/li-extended-protection'
@@ -516,6 +589,13 @@ declare module '@tanstack/react-router' {
       path: '/lace-ai-pro'
       fullPath: '/lace-ai-pro'
       preLoaderRoute: typeof LaceAiProRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kennewick': {
+      id: '/kennewick'
+      path: '/kennewick'
+      fullPath: '/kennewick'
+      preLoaderRoute: typeof KennewickRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/home': {
@@ -632,9 +712,11 @@ const rootRouteChildren: RootRouteChildren = {
   HearingHeroesRoute: HearingHeroesRoute,
   HearingUpRoute: HearingUpRoute,
   HomeRoute: HomeRoute,
+  KennewickRoute: KennewickRoute,
   LaceAiProRoute: LaceAiProRoute,
   LenireFromNeuromodRoute: LenireFromNeuromodRoute,
   LiExtendedProtectionRoute: LiExtendedProtectionRoute,
+  LocationsRoute: LocationsRoute,
   NuanceCbhcRoute: NuanceCbhcRoute,
   OnlineHearingScreeningRoute: OnlineHearingScreeningRoute,
   OtcLegislationRoute: OtcLegislationRoute,
@@ -647,6 +729,8 @@ const rootRouteChildren: RootRouteChildren = {
   ThirdPartyPayersRoute: ThirdPartyPayersRoute,
   TinnitusReliefManagementProgramRoute: TinnitusReliefManagementProgramRoute,
   VideoLibraryRoute: VideoLibraryRoute,
+  WallaWallaRoute: WallaWallaRoute,
+  WestRichlandRoute: WestRichlandRoute,
   OnlineStoreCategoryRoute: OnlineStoreCategoryRoute,
   OnlineStoreIndexRoute: OnlineStoreIndexRoute,
   OnlineStorePSlugRoute: OnlineStorePSlugRoute,

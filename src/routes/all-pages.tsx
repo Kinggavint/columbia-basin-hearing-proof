@@ -60,7 +60,7 @@ const GROUPS = [
 ];
 
 export const Route = createFileRoute("/all-pages")({
-  head: () => pageMeta({ title: TITLE, description: DESCRIPTION }),
+  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, path: "/all-pages" }),
   component: AllPages,
 });
 

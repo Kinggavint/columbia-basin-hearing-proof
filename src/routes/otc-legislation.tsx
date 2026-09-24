@@ -27,7 +27,7 @@ const BODY = [
 ];
 
 export const Route = createFileRoute("/otc-legislation")({
-  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: HERO_PHOTO }),
+  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: HERO_PHOTO, path: "/otc-legislation" }),
   component: OtcInformation,
 });
 

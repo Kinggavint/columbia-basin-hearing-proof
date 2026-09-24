@@ -118,7 +118,7 @@ const GROUPS: { heading: string; note?: string; items: { term: string; body: str
 ];
 
 export const Route = createFileRoute("/tinnitus-relief-management-program")({
-  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: HERO_PHOTO }),
+  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: HERO_PHOTO, path: "/tinnitus-relief-management-program" }),
   component: TinnitusProgram,
 });
 

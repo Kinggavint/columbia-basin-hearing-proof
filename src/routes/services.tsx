@@ -61,7 +61,7 @@ const EVERYDAY = [
 ];
 
 export const Route = createFileRoute("/services")({
-  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: HERO_PHOTO }),
+  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, image: HERO_PHOTO, path: "/services" }),
   component: Services,
 });
 

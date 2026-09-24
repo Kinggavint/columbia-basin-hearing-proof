@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Link } from "@tanstack/react-router";
-import { LOCATIONS, PRIMARY_PHONE, PRIMARY_TEL } from "./content";
+import { PRIMARY_PHONE, PRIMARY_TEL } from "./content";
+import { CLINICS } from "./locations";
 import { NAV, PATIENT_PORTAL, type NavItem } from "./nav";
 
 export function Wordmark({
@@ -259,9 +260,17 @@ export function Footer() {
         <div>
           <h2 className="eyebrow text-ink-foreground/60">Locations</h2>
           <ul className="mt-5 space-y-4">
-            {LOCATIONS.map((loc) => (
+            {CLINICS.map((loc) => (
               <li key={loc.city}>
-                <p className="text-sm font-semibold text-ink-foreground">{loc.city}</p>
+                {/* City name links to that clinic's own page — a crawlable
+                    site-wide internal link to each location, which is what makes
+                    the location pages rank rather than sit there orphaned. */}
+                <Link
+                  to={`/${loc.slug}`}
+                  className="text-sm font-semibold text-ink-foreground underline-offset-4 hover:underline"
+                >
+                  {loc.city}
+                </Link>
                 <p className="mt-0.5 text-sm text-ink-foreground/70">
                   {loc.street}
                   <br />

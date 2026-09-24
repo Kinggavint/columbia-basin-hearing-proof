@@ -17,7 +17,7 @@ const slugify = (name: string) =>
     .replace(/^-|-$/g, "");
 
 export const Route = createFileRoute("/video-library")({
-  head: () => pageMeta({ title: TITLE, description: DESCRIPTION }),
+  head: () => pageMeta({ title: TITLE, description: DESCRIPTION, path: "/video-library" }),
   component: VideoLibrary,
 });
 

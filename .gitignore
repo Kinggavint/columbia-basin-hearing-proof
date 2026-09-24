@@ -35,3 +35,6 @@ dist-ssr
 
 # static GitHub Pages export (published to columbia-basin-hearing-proof)
 .pages-dist/
+
+# Static prerender output (built by the deploy pipeline)
+dist-static
