@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { installPhoneClickTracking } from "../lib/analytics";
 import { LocalBusinessJsonLd } from "@/components/site/structured-data";
 import { SiteLayout } from "@/components/site/layout";
 import { PRIMARY_PHONE, PRIMARY_TEL } from "@/components/site/content";
@@ -152,7 +153,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "function gtag(){dataLayer.push(arguments);}\n" +
           "gtag('js', new Date());\n" +
           "gtag('config', 'AW-962703891');\n" +
-          "gtag('config', 'G-XMVRK9J2QC');",
+          // ?debug_mode=true routes this browser's GA4 hits to DebugView, and
+          // sessionStorage keeps it on across page loads until ?debug_mode=false.
+          // debug_mode is only ever passed as true: GA4 treats the mere presence of
+          // the parameter as "on", so sending false would not switch it off.
+          "var cbhcDebug = false;\n" +
+          "try {\n" +
+          "  var q = new URLSearchParams(location.search).get('debug_mode');\n" +
+          "  if (q === 'true') sessionStorage.setItem('cbhc_ga_debug', '1');\n" +
+          "  if (q === 'false') sessionStorage.removeItem('cbhc_ga_debug');\n" +
+          "  cbhcDebug = sessionStorage.getItem('cbhc_ga_debug') === '1';\n" +
+          "} catch (e) {}\n" +
+          "gtag('config', 'G-XMVRK9J2QC', cbhcDebug ? { debug_mode: true } : {});",
       },
     ],
   }),
@@ -179,6 +191,10 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+
+  // One delegated listener covers every tel: link on every page, including the
+  // /hearing landing page, which renders its own header and footer.
+  useEffect(() => installPhoneClickTracking(), []);
 
   return (
     <QueryClientProvider client={queryClient}>

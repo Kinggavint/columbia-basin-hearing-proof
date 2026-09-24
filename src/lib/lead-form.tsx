@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
+import { trackEvent } from "./analytics";
 
 /**
  * Web3Forms access key. Public by design — it identifies the destination inbox
@@ -34,11 +35,11 @@ function trackLeadConversion(extra?: Record<string, unknown>) {
 export type LeadFormStatus = "idle" | "submitting" | "success" | "error";
 
 /**
- * Posts every named field in the form to Web3Forms, then reports the Google Ads
- * conversion. `subject` becomes the notification email's subject line so staff can
- * tell which form a lead came from.
+ * Posts every named field in the form to Web3Forms, then reports the lead to GA4
+ * and Google Ads. `subject` becomes the notification email's subject line so staff
+ * can tell which form a lead came from; `formId` does the same job in analytics.
  */
-export function useLeadForm(subject: string) {
+export function useLeadForm(subject: string, formId: string) {
   const [status, setStatus] = useState<LeadFormStatus>("idle");
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -69,6 +70,14 @@ export function useLeadForm(subject: string) {
       }
 
       setStatus("success");
+      // Only reached once Web3Forms has confirmed delivery, so GA4 counts leads
+      // that actually arrived, not button clicks or submissions that bounced.
+      trackEvent("generate_lead", {
+        form_id: formId,
+        page_location: window.location.href,
+        promo: fields.promo,
+        location_selected: fields.location,
+      });
       // A promo form carries a hidden `promo` field; tag the conversion with it so
       // campaign performance is separable in reporting.
       trackLeadConversion(fields.promo ? { promo: fields.promo } : undefined);

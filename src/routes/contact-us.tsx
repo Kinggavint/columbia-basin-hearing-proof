@@ -61,7 +61,7 @@ function Field({
 }
 
 function ContactUs() {
-  const { status, handleSubmit } = useLeadForm("New website enquiry — Contact Us page");
+  const { status, handleSubmit } = useLeadForm("New website enquiry — Contact Us page", "contact_us");
 
   return (
     <SiteLayout>

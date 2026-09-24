@@ -125,7 +125,8 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
   // block for fixed-position descendants, which would otherwise confine this
   // "fixed inset-0" drawer to the header's own box instead of the full viewport.
   return createPortal(
-    <div className="fixed inset-0 z-[60] lg:hidden">
+    // Portalled out of <header>, so it says where it belongs for click tracking.
+    <div className="fixed inset-0 z-[60] lg:hidden" data-link-location="header">
       <button
         aria-label="Close menu"
         onClick={onClose}

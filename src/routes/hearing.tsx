@@ -165,7 +165,7 @@ function LandingFooter() {
 }
 
 function Hero() {
-  const { status, handleSubmit } = useLeadForm(`${CALLBACK_SUBJECT} (hero form)`);
+  const { status, handleSubmit } = useLeadForm(`${CALLBACK_SUBJECT} (hero form)`, "hearing_hero_callback");
   const promoLive = usePromoLive();
 
   return (
@@ -384,7 +384,7 @@ function SocialProofSection() {
 }
 
 function CallbackFormSection() {
-  const { status, handleSubmit } = useLeadForm(CALLBACK_SUBJECT);
+  const { status, handleSubmit } = useLeadForm(CALLBACK_SUBJECT, "hearing_callback");
   const promoLive = usePromoLive();
 
   return (
